@@ -4,12 +4,12 @@ namespace discordpp {
 template <class BASE>
 class PluginInteractionHandler : public BASE, virtual BotStruct {
   public:
-    std::multimap<snowflake, handleEvent> interactionHandlers;
+    std::multimap<Snowflake, handleEvent> interactionHandlers;
 
-    PluginInteractionHandler() {
+    PluginInteractionHandler() : BASE() {
         handlers.insert(
             {"INTERACTION_CREATE", [this](json msg) {
-                 const snowflake id = get_snowflake(msg["data"]["id"]);
+                 const Snowflake id = msg["data"]["id"].get<Snowflake>();
                  if (interactionHandlers.find(id) ==
                      interactionHandlers.end()) {
                      if (debugUnhandled) {
