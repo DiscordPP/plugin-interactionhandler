@@ -9,6 +9,7 @@ endif ()
 
 list(PREPEND ALL_DISCORDPP_PLUGINS discordpp::PluginInteractionHandler)
 list(APPEND ALL_DISCORDPP_LIBRARIES discordpp-plugin-interactionhandler)
+set(ALL_DISCORDPP_INCLUDES ${ALL_DISCORDPP_INCLUDES} "#include <discordpp/plugin-interactionhandler.hh>\n" PARENT_SCOPE)
 set(ALL_DISCORDPP_LIBRARIES ${ALL_DISCORDPP_LIBRARIES} PARENT_SCOPE)
 set(ALL_DISCORDPP_PLUGINS ${ALL_DISCORDPP_PLUGINS} PARENT_SCOPE)
 
